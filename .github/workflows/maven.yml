@@ -25,8 +25,8 @@ jobs:
     - name: Synopsys Detect
       uses: blackducksoftware/github-action@2.0.0
       with:
-        args: '--blackduck.url="${{ secrets.BLACKDUCK_URL}}" --blackduck.api.token="${{ secrets.BLACKDUCK_TOKEN}}" --detect.risk.report.pdf=true --detect.risk.report.pdf.path=./risk-report --detect.tools="SIGNATURE_SCAN,DETECTOR" --detect.project.name="RAF-GHA-Test" --detect.project.version.name="0.1" --detect.policy.check.fail.on.severities=BLOCKER'
+        args: '--blackduck.url="${{ secrets.BLACKDUCK_URL}}" --blackduck.api.token="${{ secrets.BLACKDUCK_TOKEN}}" --detect.wait.for.results=true --detect.risk.report.pdf=true --detect.risk.report.pdf.path=./risk-report --detect.tools="SIGNATURE_SCAN,DETECTOR" --detect.project.name="RAF-GHA-Test" --detect.project.version.name="0.1" --detect.policy.check.fail.on.severities=BLOCKER'
     - uses: actions/upload-artifact@v2
       with:
-        name: my-artifact
+        name: RiskReport
         path: /home/runner/work/ducky-crm/ducky-crm/risk-report/RAF_GHA_Test_0_1_BlackDuck_RiskReport.pdf
